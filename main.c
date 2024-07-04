@@ -7,6 +7,7 @@ typedef struct Node {
 } Node;
 
 void initializeList (Node** list);
+void printingElements (Node* list);
 
 int main(void)
 {
@@ -30,6 +31,10 @@ int main(void)
     printf("8 - to print elements of the list\n");
     printf("9 - to leave the program\n");
 
+    if ( userInput == 8 ) {
+      printingElements(list);
+    }
+
 
     scanf("%i", &userInput);
   } while ( userInput != 9 );
@@ -52,4 +57,14 @@ void initializeList (Node** list) {
 }
 
 void append (Node* list) {}
+
+void printingElements (Node* list) {
+  printf("[");
+
+  for ( Node* actualNode = list;  actualNode != NULL; actualNode = actualNode->next) {
+    printf(" %i ", actualNode->num);
+  }
+
+  printf("]");
+}
 
