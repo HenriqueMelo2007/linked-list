@@ -31,12 +31,12 @@ int main(void)
     printf("8 - to print elements of the list\n");
     printf("9 - to leave the program\n");
 
+    scanf("%i", &userInput);
+
     if ( userInput == 8 ) {
       printingElements(list);
     }
-
-
-    scanf("%i", &userInput);
+    
   } while ( userInput != 9 );
 
   return 0;
@@ -65,6 +65,6 @@ void printingElements (Node* list) {
     printf(" %i ", actualNode->num);
   }
 
-  printf("]");
+  printf("]\n");
 }
 
