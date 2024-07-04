@@ -36,7 +36,7 @@ int main(void)
     if ( userInput == 8 ) {
       printingElements(list);
     }
-    
+
   } while ( userInput != 9 );
 
   return 0;
@@ -44,16 +44,16 @@ int main(void)
 
 
 void initializeList (Node** list) {
-  Node* newNode = malloc(sizeof(Node));
+  Node* firstNode = malloc(sizeof(Node));
 
-  int newNum;
+  int firstNum;
   printf("Type the first value: ");
-  scanf("%i", &newNum);
+  scanf("%i", &firstNum);
 
-  newNode->num = newNum;
-  newNode->next = NULL;
+  firstNode->num = firstNum;
+  firstNode->next = NULL;
 
-  *list = newNode;
+  *list = firstNode;
 }
 
 void append (Node* list) {}
