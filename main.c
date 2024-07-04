@@ -8,6 +8,7 @@ typedef struct Node {
 
 void initializeList (Node** list);
 void prepend (Node** list);
+void append (Node** list);
 void printingElements (Node* list);
 
 int main(void)
@@ -36,6 +37,8 @@ int main(void)
 
     if ( userInput == 1 ) {
       prepend(&list);
+    } else if ( userInput == 3 ) {
+      append(&list);
     } else if ( userInput == 8 ) {
       printingElements(list);
     }
@@ -72,6 +75,24 @@ void prepend (Node** list) {
   *list = newNode;
 }
 
+void append (Node** list) {
+  Node* newNode = malloc(sizeof(Node));
+
+  int newNum;
+  printf("Type the new value: ");
+  scanf("%i", &newNum);
+
+  newNode->num = newNum;
+  newNode->next = NULL;
+
+  Node* actualNode = *list;
+  while ( actualNode->next != NULL ) {
+    actualNode = actualNode->next;
+  }
+
+  actualNode->next = newNode;
+}
+
 void printingElements (Node* list) {
   printf("[");
 
@@ -81,4 +102,3 @@ void printingElements (Node* list) {
 
   printf("]\n");
 }
-
