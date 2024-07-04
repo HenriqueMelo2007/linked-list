@@ -7,7 +7,7 @@ typedef struct Node {
 } Node;
 
 void initializeList (Node** list);
-void append (Node** list);
+void prepend (Node** list);
 void printingElements (Node* list);
 
 int main(void)
@@ -35,7 +35,7 @@ int main(void)
     scanf("%i", &userInput);
 
     if ( userInput == 1 ) {
-      append(&list);
+      prepend(&list);
     } else if ( userInput == 8 ) {
       printingElements(list);
     }
@@ -59,7 +59,7 @@ void initializeList (Node** list) {
   *list = firstNode;
 }
 
-void append (Node** list) {
+void prepend (Node** list) {
   Node* newNode = malloc(sizeof(Node));
 
   int newNum;
