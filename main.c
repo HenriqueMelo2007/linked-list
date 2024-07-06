@@ -11,7 +11,7 @@ void prepend (Node** list);
 void append (Node** list);
 void deleteHead (Node** list);
 void deleteTail (Node** list);
-void countingElements (Node *list);
+void countingElements (Node* list);
 void printingElements (Node* list);
 
 int main(void)
@@ -44,6 +44,8 @@ int main(void)
       append(&list);
     } else if ( userInput == 4 ) {
       deleteHead(&list);
+    } else if ( userInput == 6 ) {
+      deleteTail(&list);
     } else if ( userInput == 7 ) {
       countingElements(list);
     } else if ( userInput == 8 ) {
@@ -100,7 +102,7 @@ void append (Node** list) {
   actualNode->next = newNode;
 }
 
-void countingElements (Node *list) {
+void countingElements (Node* list) {
   int num = 0;
   printf("[");
   for ( Node* actualNode = list; actualNode != NULL; actualNode = actualNode->next ) {
@@ -131,4 +133,22 @@ void deleteHead (Node** list) {
   } else printf("Only 1 element in list, add more elements to delete\n");
 }
 
-void deleteTail (Node** list) {}
+void deleteTail (Node** list) {
+  Node* penultimate = malloc(sizeof(Node));
+  penultimate = *list;
+
+  if ( penultimate->next != NULL ) {
+
+    Node* last = malloc(sizeof(Node));
+    last = penultimate->next;
+
+    while ( last->next != NULL ) {
+      penultimate = last;
+      last = last->next;
+    }
+
+    penultimate->next = NULL;
+    free(last);
+
+  } else printf("Only 1 element in list, add more elements to delete\n");
+}
