@@ -9,6 +9,7 @@ typedef struct Node {
 void initializeList (Node** list);
 void prepend (Node** list);
 void append (Node** list);
+void countingElements (Node *list);
 void printingElements (Node* list);
 
 int main(void)
@@ -39,6 +40,8 @@ int main(void)
       prepend(&list);
     } else if ( userInput == 3 ) {
       append(&list);
+    } else if ( userInput == 7 ) {
+      countingElements(list);
     } else if ( userInput == 8 ) {
       printingElements(list);
     }
@@ -91,6 +94,16 @@ void append (Node** list) {
   }
 
   actualNode->next = newNode;
+}
+
+void countingElements (Node *list) {
+  int num = 0;
+  printf("[");
+  for ( Node* actualNode = list; actualNode != NULL; actualNode = actualNode->next ) {
+    num++;
+  }
+  printf(" %i ", num);
+  printf("]\n");
 }
 
 void printingElements (Node* list) {
