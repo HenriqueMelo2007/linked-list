@@ -9,6 +9,8 @@ typedef struct Node {
 void initializeList (Node** list);
 void prepend (Node** list);
 void append (Node** list);
+void deleteHead (Node** list);
+void deleteTail (Node** list);
 void countingElements (Node *list);
 void printingElements (Node* list);
 
@@ -40,6 +42,8 @@ int main(void)
       prepend(&list);
     } else if ( userInput == 3 ) {
       append(&list);
+    } else if ( userInput == 4 ) {
+      deleteHead(&list);
     } else if ( userInput == 7 ) {
       countingElements(list);
     } else if ( userInput == 8 ) {
@@ -115,3 +119,16 @@ void printingElements (Node* list) {
 
   printf("]\n");
 }
+
+void deleteHead (Node** list) {
+  Node* head = *list;
+
+  if ( head->next != NULL ) {
+    Node* tmpNode = malloc(sizeof(Node));
+    tmpNode = head->next;
+    free(list);
+    *list = tmpNode;
+  } else printf("Only 1 element in list, add more elements to delete\n");
+}
+
+void deleteTail (Node** list) {}
