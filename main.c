@@ -7,6 +7,7 @@ typedef struct Node {
 } Node;
 
 void initializeList (Node** list);
+
 void prepend (Node** list);
 void append (Node** list);
 void deleteHead (Node** list);
@@ -27,32 +28,30 @@ int main(void)
   do {
     printf("Type:\n");
     printf("1 - to insert at the beggining\n");
-    printf("2 - to insert at a specific position\n");
-    printf("3 - to insert at the end\n");
-    printf("4 - to remove at the beggining\n");
-    printf("5 - to remove at a specific position\n");
-    printf("6 - to remove at the end\n");
-    printf("7 - to count elements of the list\n");
-    printf("8 - to print elements of the list\n");
-    printf("9 - to leave the program\n");
+    printf("2 - to insert at the end\n");
+    printf("3 - to remove at the beggining\n");
+    printf("4 - to remove at the end\n");
+    printf("5 - to count elements of the list\n");
+    printf("6 - to print elements of the list\n");
+    printf("7 - to leave the program\n");
 
     scanf("%i", &userInput);
 
     if ( userInput == 1 ) {
       prepend(&list);
-    } else if ( userInput == 3 ) {
+    } else if ( userInput == 2 ) {
       append(&list);
-    } else if ( userInput == 4 ) {
+    } else if ( userInput == 3 ) {
       deleteHead(&list);
-    } else if ( userInput == 6 ) {
+    } else if ( userInput == 4 ) {
       deleteTail(&list);
-    } else if ( userInput == 7 ) {
+    } else if ( userInput == 5 ) {
       countingElements(list);
-    } else if ( userInput == 8 ) {
+    } else if ( userInput == 6 ) {
       printingElements(list);
     }
 
-  } while ( userInput != 9 );
+  } while ( userInput != 7 );
 
   return 0;
 }
