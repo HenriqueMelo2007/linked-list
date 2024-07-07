@@ -12,7 +12,9 @@ A linked list is a linear data structure where elements are stored in nodes, and
 #### There are different types of linked lists:
 
 `Singly Linked List: Each node points to the next node. The last node points to null (or nullptr in C), indicating the end of the list.`
+
 `Doubly Linked List: Each node has two pointers: one pointing to the next node and one pointing to the previous node.`
+
 `Circular Linked List: The last node points back to the first node, forming a circle.`
 
 
