@@ -53,6 +53,12 @@ int main(void)
 
   } while ( userInput != 7 );
 
+  while ( list != NULL ) {
+    Node* tmp = list->next;
+    free(list);
+    list = tmp;
+  }
+
   return 0;
 }
 
