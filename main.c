@@ -131,16 +131,14 @@ void deleteHead (Node** list) {
   Node* head = *list;
 
   if ( head->next != NULL ) {
-    Node* tmpNode = malloc(sizeof(Node));
-    tmpNode = head->next;
+    Node* tmpNode = head->next;
     free(list);
     *list = tmpNode;
   } else printf("Only 1 element in list, add more elements to delete\n");
 }
 
 void deleteTail (Node** list) {
-  Node* penultimate = malloc(sizeof(Node));
-  penultimate = *list;
+  Node* penultimate = *list;
 
   if ( penultimate->next != NULL ) {
 
